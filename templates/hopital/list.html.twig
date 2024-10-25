@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MedecinController!{% endblock %}
+
+{% block body %}
+<h1>Medecin List </h1>
+<h3><a href="{{ path('app_hopital_add')}}">add hopital</a></h3>
+{% for med in hopitals %}
+<p><b>Nom : </b> {{ med.nom }} </p>
+<p><b>date_fabrication : </b> {{ med.dateFabrication |date("Y-m-d") }} </p>
+    <a href="{{path('app_hopital_edit', { id : med.id })}}" >Edit</a>
+<a href="{{path('app_hopital_delete', { id : med.id })}}" >Delete</a>
+{% endfor %} 
+{% endblock %}
